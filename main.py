@@ -1,12 +1,14 @@
 import time
 import folium
 import requests
+import keyboard
 
-# Déclaration des variables
+
 iss_list = []
 m = folium.Map()
+bool = True
 
-while True:
+while bool:
     iss = requests.get("http://api.open-notify.org/iss-now.json").json()
     iss_list.append(
         [iss["iss_position"]["latitude"],
@@ -21,3 +23,7 @@ while True:
         ).add_to(m)
     time.sleep(1)
     m.save("c:/Users/Emin/OneDrive/Formation/Python/service web/index.html")
+    
+    if keyboard.read_key() == "q":
+        bool = False
+    
