@@ -2,7 +2,7 @@ import time
 import folium
 import requests
 
-
+# Déclaration des variables
 iss_list = []
 m = folium.Map()
 
